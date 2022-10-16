@@ -27,11 +27,11 @@ A simple project for listing the popular github repositories along with filterin
 ```http
   GET /api/v1/repository
 ```
-| Request Parameter | Type     | Description                       |
-| :-------- | :------- | :-------------------------------- |
-| `fromDate`      | `Date` | **Required**. To specify the start date from when the APIs filtering should be started. Accepts only the ISO Date format **yyyy-MM-dd**|
-| `language`| `string` | To apply language filtering |
-| `querySize`      | `Integer` | To specify the page size, default value is **10**|
+| Request Parameter | Type     | Description                                                                                                                             |
+| :-------- | :------- |:----------------------------------------------------------------------------------------------------------------------------------------|
+| `fromDate`      | `Date` | **Required**. To specify the start date from when the APIs filtering should be started. Accepts only the ISO Date format **yyyy-MM-dd** |
+| `language`| `string` | To apply the programming language filter                                                                                                |
+| `querySize`      | `Integer` | To specify the page size, default value is **10**                                                                                       |
 
 
 ## Demo Live
