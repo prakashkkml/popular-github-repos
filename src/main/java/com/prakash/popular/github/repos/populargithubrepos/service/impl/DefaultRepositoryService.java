@@ -17,6 +17,12 @@ public class DefaultRepositoryService implements RepositoryService {
 
     private final DataProviderService dataProviderService;
 
+    /**
+     * Return repository response data based on the repository query
+     *
+     * @param repositoryQuery
+     * @return
+     */
     @Override
     public RepositoryResponseDto getRepositories(RepositoryQuery repositoryQuery) {
         GithubDataResponse githubDataResponse = dataProviderService.getData(repositoryQuery.getFromDate(), repositoryQuery.getLanguage());

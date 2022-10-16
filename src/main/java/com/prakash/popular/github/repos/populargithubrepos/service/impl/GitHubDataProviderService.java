@@ -25,9 +25,16 @@ public class GitHubDataProviderService implements DataProviderService {
 
     private final WebClient webClient;
 
+    /**
+     * This method retrieves the data from GitHub API with the default page size as 100
+     *
+     * @param fromDate
+     * @param language
+     * @return
+     */
     @Override
     @Cacheable(value = REPOSITORY_CACHE, keyGenerator = "repositoryCacheKeyGenerator")
-//    @CircuitBreaker(name = GIT_HUB_DATA_PROVIDER_SERVICE, fallbackMethod = "returnEmptyGithubDataResponse")
+    @CircuitBreaker(name = GIT_HUB_DATA_PROVIDER_SERVICE, fallbackMethod = "returnEmptyGithubDataResponse")
     public GithubDataResponse getData(Date fromDate, String language) {
         GithubDataResponse githubDataResponse = webClient.get().uri(getEndPoint(fromDate, language))
                 .retrieve()

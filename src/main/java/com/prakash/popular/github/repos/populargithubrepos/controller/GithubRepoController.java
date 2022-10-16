@@ -37,9 +37,15 @@ public class GithubRepoController {
         return ResponseEntity.status(HttpStatus.OK).body(responseDto);
     }
 
+    /**
+     * This method perform a custom validation and throws exception if the requested fromDate is in the future.
+     *
+     * @param fromDate
+     * @throws InvalidRequestException
+     */
     private static void validateDate(Date fromDate) throws InvalidRequestException {
         if (fromDate.getTime() > new Date().getTime()) {
-            throw new InvalidRequestException("From date should be either current time or it should be in the past");
+            throw new InvalidRequestException("Date should be either current time or it should be in the past");
         }
     }
 }
