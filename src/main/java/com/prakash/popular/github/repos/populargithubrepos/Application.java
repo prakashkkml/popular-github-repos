@@ -10,8 +10,6 @@ import org.springframework.cache.annotation.EnableCaching;
 @OpenAPIDefinition(info = @Info(title = "An Application for fetching the Popular GitHub Repositories", version = "1.0.0"))
 @EnableCaching
 public class Application {
-    // used lombok to remove boiler plate codes
-    // WebClient used for synchronous REST communication
     public static void main(String[] args) {
         SpringApplication.run(Application.class, args);
     }
