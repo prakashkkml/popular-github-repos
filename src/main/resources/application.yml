@@ -1,0 +1,18 @@
+resilience4j:
+  circuitbreaker:
+    instances:
+      gitHubDataProviderService:
+        eventConsumerBufferSize: 10
+        failureRateThreshold: 50
+        minimumNumberOfCalls: 5
+        waitDurationInOpenState: 10s
+        automaticTransitionFromOpenToHalfOpenEnabled: true
+        permittedNumberOfCallsInHalfOpenState: 3
+        slidingWindowSize: 10
+        slidingWindowType: COUNT_BASED
+spring:
+  cache:
+    cache-names:
+      - repositoryCache
+    caffeine:
+      spec: maximumSize=800, expireAfterAccess=30s
