@@ -62,7 +62,7 @@ class ApplicationIntegrationTests {
                 .getResponseBody().blockFirst();
 
         // assert
-        responseDto.getRepositoryItems().stream().forEach(x -> assertThat(x.getLanguage()).isEqualToIgnoringCase(language));
+            responseDto.getRepositoryItems().stream().forEach(x -> assertThat(x.getLanguage()).isEqualToIgnoringCase(language));
     }
 
     @Test

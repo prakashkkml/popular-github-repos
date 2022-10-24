@@ -18,10 +18,10 @@ import java.util.Date;
 @AllArgsConstructor
 @Slf4j
 public class GitHubDataProviderService implements DataProviderService {
-    public static final String REPOSITORY_CACHE = "repositoryCache";
-    public static final String GIT_HUB_DATA_PROVIDER_SERVICE = "gitHubDataProviderService";
-    public static final String GITHUB_REPOSITORIES_URL = "https://api.github.com/search/repositories?q=";
-    public static final String SORT_BY_STARS_AND_DEFAULT_PAGE_COUNT = "sort=stars&order=desc&per_page=100";
+    private static final String REPOSITORY_CACHE = "repositoryCache";
+    private static final String GIT_HUB_DATA_PROVIDER_SERVICE = "gitHubDataProviderService";
+    private static final String GITHUB_REPOSITORIES_URL = "https://api.github.com/search/repositories?q=";
+    private static final String SORT_BY_STARS_AND_DEFAULT_PAGE_COUNT = "sort=stars&order=desc&per_page=100";
 
     private final WebClient webClient;
 
@@ -69,7 +69,7 @@ public class GitHubDataProviderService implements DataProviderService {
     private String getEndPoint(Date fromDate, String language) {
         StringBuilder resultUrl = new StringBuilder(GITHUB_REPOSITORIES_URL);
         if (!ObjectUtils.isEmpty(language))
-            resultUrl.append("language:").append(language).append("&");
+            resultUrl.append("language:").append(language).append("+");
         if (!ObjectUtils.isEmpty(fromDate)) {
             resultUrl.append("created:>").append(new SimpleDateFormat("yyyy-MM-dd").format(fromDate)).append("&");
         }

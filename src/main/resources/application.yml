@@ -1,3 +1,11 @@
+logging:
+  level:
+    com:
+      prakash:
+        popular:
+          github:
+            repos:
+              populargithubrepos: DEBUG
 resilience4j:
   circuitbreaker:
     instances:
@@ -15,4 +23,4 @@ spring:
     cache-names:
       - repositoryCache
     caffeine:
-      spec: maximumSize=800, expireAfterAccess=30s
+      spec: maximumSize=100, expireAfterAccess=30s
